@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "SAP Automation Extension",
+    "description": "Define templates to fill into SAP time tracking",
+    "version": "0.1",
+    "action": {
+      "default_popup": "./popup/popup.html",
+      "default_icon": "./resources/1115px-SAP-Logo.svg.png"
+    }
+  }

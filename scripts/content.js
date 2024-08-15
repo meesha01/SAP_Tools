@@ -12,6 +12,7 @@
 */
 
 const DURATION_INPUT_ID = "__input0-inner";
+const PROJECT_INPUT_ID = "application-Timerecording-display-component---ViewAddEntry--productInput-inner";
 
 console.log("Content script loaded");
 
@@ -27,14 +28,27 @@ chrome.runtime.onMessage.addListener(
 );
 
 function fillForm(formData){
-    const durationInput = document.getElementById(DURATION_INPUT_ID);
 
-    if(durationInput){
-        durationInput.value = formData.duration;
-        return true;
-    }
-    else{
-        console.log("Element not found: " + DURATION_INPUT_ID);
-        return false;
-    }
+    const focusEvent = new Event('focus');
+    const blurEvent = new Event('blur');
+    const fillField = (fieldId, value)=>{
+        const field = document.getElementById(fieldId);
+        if(field){
+            field.value = value;
+            field.dispatchEvent(focusEvent);
+            field.dispatchEvent(blurEvent);
+            return true;
+        }
+        else{
+            console.log("Element not found: " + fieldId);
+            return false;
+        }
+    };
+
+    let isFormFilled = true;
+
+    isFormFilled = isFormFilled && fillField(DURATION_INPUT_ID, formData.duration);
+    isFormFilled = isFormFilled && fillField(PROJECT_INPUT_ID, formData.project);
+
+    return isFormFilled;
 }

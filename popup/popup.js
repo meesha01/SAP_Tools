@@ -6,7 +6,10 @@ function fillForm(){
     // Send a message to the content script of the active tab
     (async () => {
         const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
-        const response = await chrome.tabs.sendMessage(tab.id, {formData: {duration: 1.5}});
+        const response = await chrome.tabs.sendMessage(tab.id, {formData: {
+            project:"Admin PRV (AM) | Admin |  (Consultant)",
+            duration: 1.22
+        }});
         console.log("Response from the content script: " + response);
     })();
 }

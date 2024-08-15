@@ -1,10 +1,27 @@
 {
-    "manifest_version": 3,
-    "name": "SAP Automation Extension",
-    "description": "Define templates to fill into SAP time tracking",
-    "version": "0.1",
-    "action": {
-      "default_popup": "./popup/popup.html",
-      "default_icon": "./resources/1115px-SAP-Logo.svg.png"
+  "manifest_version": 3,
+  "name": "SAP Extension",
+  "description": "Tools for extending SAP time tracking",
+  "version": "0.1",
+  "action": {
+    "default_popup": "./popup/popup.html",
+    "default_icon": "./resources/1115px-SAP-Logo.svg.png"
+  },
+  //Which sites to inject:
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        // There is an iFrame inside the main SAP page, this is the URL for the iFrame
+        "https://actesprd.launchpad.cfapps.eu10.hana.ondemand.com/*"
+      ],
+      "all_frames": true
     }
-  }
+  ],
+  "host_permissions": [
+    "https://actesprd.launchpad.cfapps.eu10.hana.ondemand.com/*"
+  ]
+  //TODO: Add icons tag
+
+  //Service workers
+}

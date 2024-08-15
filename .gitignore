@@ -1,0 +1,10 @@
+# vscode files:
+*.code-workspace
+
+*~
+*.DS_store
+node_modules
+# Temporary directory for debugging extension samples
+_debug
+_metadata
+*.swp # vim temp files

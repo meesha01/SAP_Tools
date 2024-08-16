@@ -1,5 +1,6 @@
 /*
-    This is the that script runs inside the actual webpage, and has access to it's DOM
+    Content script that runs inside the actual webpage, and has access to it's DOM
+    Listens for messages from the popup and fills the form with the data received
     See https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts
     
     Author: meer.shah@actico.com
@@ -14,13 +15,17 @@
 const DURATION_INPUT_ID = "__input0-inner";
 const PROJECT_INPUT_ID = "application-Timerecording-display-component---ViewAddEntry--productInput-inner";
 
-console.log("Content script loaded");
+console.log("fillForm.js loaded");
 
 // Listen for messages from the popup:
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
+        if(request.type !== "fillForm"){
+            // Ignore messages that are not meant for this script
+            return;
+        }
         console.log("Message received from popup: " + request);
-        
+
         // Fill the form:
         const isFormFilled = fillForm(request.formData);
         sendResponse(isFormFilled);

@@ -10,12 +10,13 @@
   //Which sites to inject:
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["content_scripts/fillForm.js", "content_scripts/injectUI.js", "content_scripts/saveFormData.js"],
       "matches": [
         // There is an iFrame inside the main SAP page, this is the URL for the iFrame
         "https://actesprd.launchpad.cfapps.eu10.hana.ondemand.com/*"
       ],
-      "all_frames": true
+      "all_frames": true,
+      "type": "module"
     }
   ],
   "host_permissions": [

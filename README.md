@@ -1,9 +1,16 @@
-# AGILTime++
+# [Deprecated] AGILTime++
 A Chrome extension that adds features to SAP's AGILTime Tool
 
 [![GitHub Release](https://img.shields.io/github/v/release/meesha01/AGIL-Plus-Plus)](https://github.com/meesha01/AGIL-Plus-Plus/releases/latest)
 [![GitHub Release](https://img.shields.io/github/v/release/meesha01/AGIL-Plus-Plus?include_prereleases&label=beta)](https://github.com/meesha01/AGIL-Plus-Plus/releases)
 [![GitHub contributors](https://img.shields.io/github/contributors/meesha01/AGIL-Plus-Plus)](https://github.com/meesha01/AGIL-Plus-Plus/graphs/contributors)
+
+## Deprecated:
+- This repository has been deprecated in favor of the official update by AGILTime
+- The extension will no longer receive updates, bug fixes, or new features
+- New AGILTime now supports Project Templates, and has a better UI for Presence Times
+- If a major feature is needed that is not supported by AGILTime, this repo may be reopened
+- Contact [Meer](mailto:meer.shah@actico.com) for any questions / requests
 
 ## Feature List:
 - Save repeated Project data as a template to reuse it.
